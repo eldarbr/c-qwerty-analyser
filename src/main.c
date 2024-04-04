@@ -29,7 +29,9 @@ int main(int argc, char **argv) {
         long int word_size = 0;
         while ((word_size = getline(&current_word, &current_word_buff_size, input_data)) > 0) {
             // omit the newline
-            current_word[word_size - 1] = '\0';
+            if (current_word[word_size - 1] == '\n') {
+                current_word[word_size - 1] = '\0';
+            }
             lowercase_string(current_word);
             char current_word_is_good = 1;
             for (int i = 1; current_word_is_good && current_word[i - 1] && current_word[i]; ++i) {
