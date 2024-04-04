@@ -1,5 +1,5 @@
 CC = gcc
-CCFL = -Wall -Werror -Wextra -g
+CCFL = -Wall -Werror -Wextra
 
 all: checker
 

@@ -2,6 +2,7 @@
 #define ADJACENCY_MASTER_01
 
 #include <stdlib.h>
+#include <string.h>
 
 char **get_qwerty_adjacency_map(void);
 void free_qwerty_adjacency_map(char **const map);

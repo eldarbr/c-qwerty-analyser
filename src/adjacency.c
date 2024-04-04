@@ -1,8 +1,6 @@
 #include "adjacency.h"
 
-#include "string.h"
-
-char **get_qwerty_adjacency_map() {
+char **get_qwerty_adjacency_map(void) {
     char **qwerty_map = malloc(26 * sizeof(char *));
     for (int i = 0; i < 26; ++i) {
         qwerty_map[i] = malloc(7);
@@ -48,8 +46,11 @@ void free_qwerty_adjacency_map(char **const map) {
 }
 
 char check_for_adjacency(char **const button_map, const char first_char, const char second_char) {
-    char are_adjacent = 0;
-    const char *adjacent_to_first = *(button_map + first_char - 'a');
+    char are_adjacent = first_char == second_char;
+    char *adjacent_to_first = "";
+    if (first_char >= 'a' && first_char <= 'z' && second_char >= 'a' && second_char <= 'z') {
+        adjacent_to_first = *(button_map + first_char - 'a');
+    }
     while (adjacent_to_first[0] && !are_adjacent) {
         are_adjacent = adjacent_to_first[0] == second_char;
         ++adjacent_to_first;
