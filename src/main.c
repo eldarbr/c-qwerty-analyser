@@ -21,9 +21,8 @@ int main(int argc, char **argv) {
     }
 
     if (!work_error) {
-        char **qwerty_map = NULL;
         int good_words_count = 0;
-        qwerty_map = get_qwerty_adjacency_map();
+        const char **qwerty_map = get_qwerty_adjacency_map();
         char *current_word = NULL;
         long unsigned int current_word_buff_size = 0;
         long int word_size = 0;
@@ -46,9 +45,7 @@ int main(int argc, char **argv) {
         if (current_word) {
             free(current_word);
         }
-        if (qwerty_map) {
-            free_qwerty_adjacency_map(qwerty_map);
-        }
+        free(qwerty_map);
         printf("%d\n", good_words_count);
     } else {
         printf("n/a\n");
