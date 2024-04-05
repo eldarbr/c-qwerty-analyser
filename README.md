@@ -8,5 +8,8 @@ The program takes a filename as a console argument and counts, how many lines of
 The adjacency of buttons is defined with a map of adjacency - an array of strings of adjacent character to a character.
 
 ## Build
-Use makefile from src/\
+**Important!**
+The solution uses the posix getline(), so please compile and run on unix.
+
+To build, use makefile from src/\
 The program compiles into "checker" to the build/ folder.
